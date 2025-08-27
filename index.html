@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: "Times New Roman", Times, serif;
         }
         
         body {
@@ -25,7 +25,7 @@
             overflow: hidden;
         }
         
-        /* Fondo con corazones de Minecraft */
+        /* Fondo con imagen repetida en mosaico */
         body::before {
             content: "";
             position: fixed;
@@ -33,10 +33,12 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'%3E%3Cpath fill='%23FF6B6B' fill-opacity='0.2' d='M25,39.7C24.7,39.9,24.3,39.9,24,39.7C17,34.9,12,31.4,12,22.5c0-5.2,4.1-9.3,9.3-9.3c2.8,0,5.5,1.3,7.2,3.5c0.3,0.4,0.9,0.4,1.2,0c1.7-2.2,4.4-3.5,7.2-3.5c5.2,0,9.3,4.1,9.3,9.3c0,8.9-5,12.4-12,17.2C25.7,39.9,25.3,39.9,25,39.7z'/%3E%3C/svg%3E");
-            background-size: 200px;
+            background-image: url("https://i.pinimg.com/736x/dc/8b/d7/dc8bd7236b0cd37850a58c6b421f5319.jpg");
+            background-size: 100px auto; /* más pequeña = más mosaico */
+            background-repeat: repeat;
+            background-position: center;
             z-index: -1;
-            opacity: 0.3;
+            opacity: 0.25;
         }
         
         .container {
@@ -47,11 +49,11 @@
             max-width: 600px;
             width: 100%;
             transition: all 0.5s ease;
-            border: 2px solid #FF6B6B;
+            border: 2px solid #888; /* borde gris */
         }
         
         h1 {
-            color: #e84393;
+            color: #555; /* un gris oscuro más elegante */
             margin-bottom: 20px;
             font-size: 2.2rem;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
@@ -62,7 +64,7 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border: 3px solid #FF6B6B;
+            border: 3px solid #888; /* borde gris */
         }
         
         img {
@@ -73,13 +75,13 @@
         
         .message {
             font-size: 1.2rem;
-            color: #636e72;
+            color: #444;
             margin: 20px 0;
             line-height: 1.6;
-            background-color: #fff5f5;
+            background-color: #f5f5f5;
             padding: 15px;
             border-radius: 10px;
-            border-left: 4px solid #e84393;
+            border-left: 4px solid #888; /* borde gris */
         }
         
         .buttons {
@@ -101,7 +103,7 @@
         }
         
         #btnYes {
-            background-color: #00b894;
+            background-color: #01d15b;
             color: white;
         }
         
@@ -112,7 +114,7 @@
         }
         
         #btnNo {
-            background-color: #e84393;
+            background-color: #eb1818;
             color: white;
             position: relative;
         }
@@ -131,7 +133,7 @@
         }
         
         .thank-you h2 {
-            color: #00b894;
+            color: #2a2a2a;
             font-size: 2.5rem;
             margin-bottom: 20px;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
@@ -139,23 +141,24 @@
         
         .thank-you p {
             font-size: 1.3rem;
-            color: #636e72;
+            color: #444;
             margin-bottom: 30px;
-            background-color: #f0fff4;
+            background-color: #f0f0f0;
             padding: 15px;
             border-radius: 10px;
-            border-left: 4px solid #00b894;
+            border-left: 4px solid #888; /* borde gris */
         }
         
         .plea {
-            color: #e84393;
+            color: #000; /* ahora en negro */
             font-weight: bold;
             margin-top: 10px;
             min-height: 24px;
             font-size: 1.1rem;
-            background-color: #fff5f5;
+            background-color: #f5f5f5;
             padding: 10px;
             border-radius: 8px;
+            border: 2px solid #888; /* borde gris */
         }
         
         @keyframes fadeIn {
@@ -186,13 +189,13 @@
 <body>
     <div class="container">
         <div id="mainContent">
-            <h1>💔</h1>
+            <h1>😞</h1>
             
             <div class="image-container">
                 <img src="https://i.pinimg.com/originals/f8/24/2c/f8242cf641be3b9bff2a4c526344fabd.jpg" alt="Oso de peluche pidiendo disculpas">
             </div>
             
-            <p class="message">si t he fallado t pido perdón d la unica forma q se</p>
+          
             
             <div class="buttons">
                 <button id="btnYes">Sí</button>
@@ -203,10 +206,10 @@
         </div>
         
         <div id="thankYou" class="thank-you hidden">
-            <h2>jeje graciassss💖</h2>
-            <p></p>
+            <h2>jeje graciassss💙</h2>
+            <p>nunk ma lo juro🙇🏾‍♀️</p>
             <div class="image-container">
-                <img src="https://i.pinimg.com/originals/f8/24/2c/f8242cf641be3b9bff2a4c526344fabd.jpg" alt="Oso de peluche agradecido">
+                <img src="https://i.pinimg.com/736x/be/3f/54/be3f545a82b006ec18005372a656a47f.jpg" alt="Oso de peluche agradecido">
             </div>
         </div>
     </div>
@@ -219,33 +222,29 @@
             const mainContent = document.getElementById('mainContent');
             const thankYou = document.getElementById('thankYou');
             
-            // Frases para mostrar cuando hace clic en "No"
             const pleaMessages = [
                 "xfi :(",
                 "xfiiii:'(",
-                "nunk ma lo juro"
+                "echaita",
+                "yapu:("
             ];
             
             let pleaCount = 0;
             
             btnNo.addEventListener('click', function() {
-                // Mostrar mensaje de súplica
                 if (pleaCount < pleaMessages.length) {
                     plea.textContent = pleaMessages[pleaCount];
                     pleaCount++;
                 } else {
-                    // Si se acaban los mensajes, volver a empezar
                     pleaCount = 0;
                     plea.textContent = pleaMessages[pleaCount];
                     pleaCount++;
                 }
                 
-                // Hacer el botón "No" más pequeño y moverlo
                 const moveX = Math.random() * 100 - 50;
                 const moveY = Math.random() * 100 - 50;
                 btnNo.style.transform = `translate(${moveX}px, ${moveY}px) scale(${0.9 - (pleaCount * 0.05)})`;
                 
-                // Aumentar el botón "Sí"
                 btnYes.style.transform = 'scale(1.1)';
                 setTimeout(() => {
                     btnYes.style.transform = 'scale(1)';
@@ -253,12 +252,10 @@
             });
             
             btnYes.addEventListener('click', function() {
-                // Ocultar contenido principal y mostrar agradecimiento
                 mainContent.classList.add('hidden');
                 thankYou.classList.remove('hidden');
             });
             
-            // Efecto para que el botón "No" se mueva al intentar hacer clic
             btnNo.addEventListener('mouseover', function() {
                 if (pleaCount > 0) {
                     const x = Math.random() * 100 - 50;
