@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lo siento mucho</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            max-width: 600px;
+            width: 100%;
+            transition: all 0.5s ease;
+        }
+        
+        h1 {
+            color: #e84393;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        
+        .image-container {
+            margin: 20px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .message {
+            font-size: 1.2rem;
+            color: #636e72;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        
+        #btnYes {
+            background-color: #00b894;
+            color: white;
+        }
+        
+        #btnYes:hover {
+            background-color: #00a382;
+            transform: scale(1.05);
+        }
+        
+        #btnNo {
+            background-color: #e84393;
+            color: white;
+            position: relative;
+        }
+        
+        #btnNo:hover {
+            background-color: #d42d7a;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .thank-you {
+            animation: fadeIn 1s ease;
+        }
+        
+        .thank-you h2 {
+            color: #00b894;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .thank-you p {
+            font-size: 1.3rem;
+            color: #636e72;
+            margin-bottom: 30px;
+        }
+        
+        .plea {
+            color: #e84393;
+            font-weight: bold;
+            margin-top: 10px;
+            min-height: 24px;
+        }
+        
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23e84393"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center center;
+            background-size: contain;
+            opacity: 0;
+            animation: fall 5s linear infinite;
+        }
+        
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @media (max-width: 500px) {
+            .buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+    
+    <div class="container">
+        <div id="mainContent">
+            <h1>Lo siento mucho 💔</h1>
+            
+            <div class="image-container">
+                <img src="https://i.pinimg.com/originals/f8/24/2c/f8242cf641be3b9bff2a4c526344fabd.jpg" alt="Oso de peluche pidiendo disculpas">
+            </div>
+            
+            <p class="message">Sé que te hice enojar y lo lamento profundamente. Realmente valoró nuestra amistad y no quería lastimarte. ¿Me perdonas?</p>
+            
+            <div class="buttons">
+                <button id="btnYes">Sí</button>
+                <button id="btnNo">No</button>
+            </div>
+            
+            <p id="plea" class="plea"></p>
+        </div>
+        
+        <div id="thankYou" class="thank-you hidden">
+            <h2>¡Gracias! 💖</h2>
+            <p>Significa mucho para mí que me hayas perdonado. Prometo no volver a cometer el mismo error.</p>
+            <div class="image-container">
+                <img src="https://i.pinimg.com/originals/f8/24/2c/f8242cf641be3b9bff2a4c526344fabd.jpg" alt="Oso de peluche agradecido">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnYes = document.getElementById('btnYes');
+            const btnNo = document.getElementById('btnNo');
+            const plea = document.getElementById('plea');
+            const mainContent = document.getElementById('mainContent');
+            const thankYou = document.getElementById('thankYou');
+            const heartsContainer = document.getElementById('hearts');
+            
+            // Frases para mostrar cuando hace clic en "No"
+            const pleaMessages = [
+                "¡Porfi! :(",
+                "¿En serio no? :'(",
+                "Te pido disculpas de verdad...",
+                "Piénsalo de nuevo, por favor",
+                "¿Ni siquiera pensándolo un poco?",
+                "Voy a llorar...",
+                "Eres importante para mí",
+                "Te prometo que no volverá a pasar",
+                "No puedo aceptar un no",
+                "¡Dime que sí! ¡Por favor!"
+            ];
+            
+            let pleaCount = 0;
+            
+            // Función para crear corazones
+            function createHearts() {
+                setInterval(() => {
+                    const heart = document.createElement('div');
+                    heart.classList.add('heart');
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.animationDuration = (Math.random() * 4 + 3) + 's';
+                    heart.style.transform = `scale(${Math.random() * 0.5 + 0.5})`;
+                    heartsContainer.appendChild(heart);
+                    
+                    // Eliminar el corazón después de que termine la animación
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 5000);
+                }, 300);
+            }
+            
+            createHearts();
+            
+            btnNo.addEventListener('click', function() {
+                // Mostrar mensaje de súplica
+                if (pleaCount < pleaMessages.length) {
+                    plea.textContent = pleaMessages[pleaCount];
+                    pleaCount++;
+                } else {
+                    // Si se acaban los mensajes, volver a empezar
+                    pleaCount = 0;
+                    plea.textContent = pleaMessages[pleaCount];
+                    pleaCount++;
+                }
+                
+                // Hacer el botón "No" más pequeño y moverlo
+                const moveX = Math.random() * 100 - 50;
+                const moveY = Math.random() * 100 - 50;
+                btnNo.style.transform = `translate(${moveX}px, ${moveY}px) scale(${0.9 - (pleaCount * 0.05)})`;
+                
+                // Aumentar el botón "Sí"
+                btnYes.style.transform = 'scale(1.1)';
+                setTimeout(() => {
+                    btnYes.style.transform = 'scale(1)';
+                }, 200);
+            });
+            
+            btnYes.addEventListener('click', function() {
+                // Ocultar contenido principal y mostrar agradecimiento
+                mainContent.classList.add('hidden');
+                thankYou.classList.remove('hidden');
+                
+                // Aumentar la frecuencia de corazones
+                setInterval(() => {
+                    const heart = document.createElement('div');
+                    heart.classList.add('heart');
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                    heart.style.transform = `scale(${Math.random() * 0.7 + 0.7})`;
+                    heartsContainer.appendChild(heart);
+                    
+                    // Eliminar el corazón después de que termine la animación
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 5000);
+                }, 100);
+            });
+            
+            // Efecto para que el botón "No" se mueva al intentar hacer clic
+            btnNo.addEventListener('mouseover', function() {
+                if (pleaCount > 0) {
+                    const x = Math.random() * 100 - 50;
+                    const y = Math.random() * 100 - 50;
+                    btnNo.style.transform = `translate(${x}px, ${y}px) scale(0.9)`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
